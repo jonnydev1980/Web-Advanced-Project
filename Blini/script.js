@@ -1,21 +1,31 @@
-function bookDrive(){
+window.onload = () => {
 
-alert("Test Drive u rezervua!");
+setTimeout(() => {
+
+document.getElementById("loader").style.display = "none";
+
+},2000);
+
+};
+
+function reserve(){
+
+alert("Termini juaj u rezervua me sukses!");
 
 }
 
-function validateForm(){
+function bookingForm(){
 
 let name =
-document.getElementById("fullname").value;
+document.getElementById("name").value;
 
 let email =
 document.getElementById("email").value;
 
-let message =
-document.getElementById("message").value;
+let date =
+document.getElementById("date").value;
 
-if(name==="" || email==="" || message===""){
+if(name==="" || email==="" || date===""){
 
 alert("Plotëso të gjitha fushat!");
 
@@ -23,88 +33,101 @@ return false;
 
 }
 
-alert("Mesazhi u dërgua!");
+alert("Rezervimi u krye me sukses!");
 
 return true;
 
 }
 
-let cars=0;
 let clients=0;
+let cars=0;
 let years=0;
 
-let interval=setInterval(()=>{
+let counter = setInterval(()=>{
 
-if(cars<150){
-cars++;
-document.getElementById("carsCounter").innerHTML=cars;
+if(clients<2500){
+
+clients+=25;
+
+document.getElementById("clients").innerHTML=
+clients+"+";
+
 }
 
-if(clients<500){
-clients+=5;
-document.getElementById("clientsCounter").innerHTML=clients;
+if(cars<500){
+
+cars+=5;
+
+document.getElementById("cars").innerHTML=
+cars+"+";
+
 }
 
-if(years<20){
+if(years<15){
+
 years++;
-document.getElementById("yearsCounter").innerHTML=years;
+
+document.getElementById("years").innerHTML=
+years+"+";
+
 }
 
 },20);
 
-const images=[
-"images/car1.jpg",
-"images/car2.jpg",
-"images/car3.jpg",
-"images/car4.jpg"
+const reviews=[
+
+"★★★★★ Servisi më i mirë që kam vizituar.",
+
+"★★★★★ Punë profesionale dhe çmime të mira.",
+
+"★★★★★ Mekanikë shumë të aftë.",
+
+"★★★★★ Shërbim i shpejtë dhe korrekt."
+
 ];
 
-let index=0;
+let reviewIndex=0;
 
 setInterval(()=>{
 
-index++;
+document.getElementById("reviewText").innerHTML=
+reviews[reviewIndex];
 
-if(index>=images.length){
+reviewIndex++;
 
-index=0;
+if(reviewIndex>=reviews.length){
+
+reviewIndex=0;
 
 }
-
-document.getElementById("carImage").src=
-images[index];
 
 },3000);
 
-const reviews=[
+const cards = document.querySelectorAll(".card");
 
-"★★★★★ Shërbim perfekt!",
-"★★★★★ Vetura super cilësore!",
-"★★★★★ Staf profesional!"
+window.addEventListener("scroll",()=>{
 
-];
+cards.forEach(card=>{
 
-let r=0;
+let position = card.getBoundingClientRect().top;
 
-setInterval(()=>{
+let screen = window.innerHeight;
 
-document.getElementById("review").innerHTML=
-reviews[r];
+if(position < screen-100){
 
-r++;
-
-if(r>=reviews.length){
-
-r=0;
+card.style.opacity="1";
+card.style.transform="translateY(0px)";
 
 }
 
-},2500);
+});
 
-document
-.getElementById("themeBtn")
-.addEventListener("click",()=>{
+});
 
-document.body.classList.toggle("light");
+cards.forEach(card=>{
+
+card.style.opacity="0";
+card.style.transform="translateY(100px)";
+card.style.transition="1s";
 
 });
