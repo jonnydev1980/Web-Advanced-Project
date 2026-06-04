@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoLux Motors</title>
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+<div class="logo">AutoLux Motors</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#cars">Veturat</a>
+<a href="#services">Sherbimet</a>
+<a href="#contact">Kontakt</a>
+</nav>
+
+<button id="themeBtn">
+<i class="fa-solid fa-moon"></i>
+</button>
+</header>
+
+<section class="hero">
+
+<div class="overlay">
+
+<h1>Gjej Veturen e Endrrave</h1>
+
+<p>Luks, Siguri dhe Performancë</p>
+
+<button onclick="bookDrive()">
+Rezervo Test Drive
+</button>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div>
+<h2 id="carsCounter">0</h2>
+<p>Vetura</p>
+</div>
+
+<div>
+<h2 id="clientsCounter">0</h2>
+<p>Klientë</p>
+</div>
+
+<div>
+<h2 id="yearsCounter">0</h2>
+<p>Vite Eksperience</p>
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>Sherbimet Tona</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-car"></i>
+<h3>Shitje</h3>
+<p>Vetura të reja dhe të përdorura.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+<h3>Servis</h3>
+<p>Mirëmbajtje profesionale.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-money-bill"></i>
+<h3>Kredi</h3>
+<p>Pagesa me këste.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="cars">
+
+<h2>Veturat Popullore</h2>
+
+<div class="slider">
+
+<img id="carImage"
+src="images/car1.jpg">
+
+</div>
+
+</section>
+
+<section class="testimonial">
+
+<h2>Çfarë Thonë Klientët</h2>
+
+<p id="review"></p>
+
+</section>
+
+<section id="contact">
+
+<h2>Na Kontakto</h2>
+
+<form onsubmit="return validateForm()">
+
+<input
+type="text"
+id="fullname"
+placeholder="Emri">
+
+<input
+type="email"
+id="email"
+placeholder="Email">
+
+<textarea
+id="message"
+placeholder="Mesazhi"></textarea>
+
+<button type="submit">
+Dergo
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<h3>AutoLux Motors © 2026</h3>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
