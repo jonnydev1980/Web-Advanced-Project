@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+/* HOME HERO */
+
+.hero {
+    background:
+        linear-gradient(rgba(0,0,0,.65),
+        rgba(0,0,0,.65)),
+        url("../images/showroom.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+}
+
+/* CARS PAGE BANNER */
+
+.cars-banner {
+    background:
+        linear-gradient(rgba(0,0,0,.65),
+        rgba(0,0,0,.65)),
+        url("../images/showroom.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    height: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+.cars-banner h1 {
+    font-size: 3rem;
+}
+
+/* CARDS */
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.car-card {
+    transition: .3s;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+}
+
+/* WHY US */
+
+.why-us {
+    background: #212529;
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.why-us h2 {
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .cars-banner h1 {
+        font-size: 2rem;
+    }
+}
