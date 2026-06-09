@@ -1,19 +1,45 @@
-function showMessage(service) {
-    alert("Keni zgjedhur shërbimin: " + service);
-}
+const counters = document.querySelectorAll(".counter");
 
-// Efekt i vogël kur faqja hapet
-window.addEventListener("load", () => {
-    const cards = document.querySelectorAll(".card");
+counters.forEach(counter => {
 
-    cards.forEach((card, index) => {
-        card.style.opacity = "0";
-        card.style.transform = "translateY(30px)";
+    const update = () => {
+        const target = +counter.getAttribute("data-target");
+        const current = +counter.innerText;
 
-        setTimeout(() => {
-            card.style.transition = "0.5s";
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-        }, index * 200);
-    });
+        const increment = target / 100;
+
+        if(current < target){
+            counter.innerText =
+            Math.ceil(current + increment);
+
+            setTimeout(update, 20);
+        }
+        else{
+            counter.innerText = target;
+        }
+    };
+
+    update();
 });
+
+const reviews = [
+    "Ushqimi ishte fantastik dhe ambienti perfekt.",
+    "Shërbimi më i mirë që kam provuar ndonjëherë.",
+    "Restorant elegant me staf shumë profesional.",
+    "Do të rikthehem përsëri me familjen time."
+];
+
+let index = 0;
+
+setInterval(() => {
+
+    index++;
+
+    if(index >= reviews.length){
+        index = 0;
+    }
+
+    document.getElementById("review").textContent =
+    reviews[index];
+
+}, 3000);
