@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flights — Looking &amp; Booking</title>
+  <meta name="description" content="Search and book the best flights worldwide with Looking & Booking. Best prices guaranteed."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈</text></svg>"/>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.jpeg" alt="Looking &amp; Booking"/>
+    <span>Looking<em>&amp;</em>Booking</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="flights.html">Flights</a></li>
+    <li><a href="hotels.html">Hotels</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="flights.html">Flights</a>
+  <a href="hotels.html">Hotels</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> › Flights
+    </div>
+    <p class="section-label">Search &amp; Book</p>
+    <h1 class="section-title">Find Your Perfect Flight</h1>
+    <p class="section-sub">Hundreds of airlines, thousands of routes. Best-price guarantee on every booking.</p>
+  </div>
+</div>
+
+<div class="search-section" style="margin-top:32px;">
+  <div class="search-box">
+    <div class="search-tabs">
+      <button class="search-tab active">One Way</button>
+      <button class="search-tab">Round Trip</button>
+      <button class="search-tab">Multi-city</button>
+    </div>
+    <div class="search-fields">
+      <div class="field-group">
+        <label>From</label>
+        <input type="text" placeholder="Belgrade (BEG)" value="Belgrade (BEG)"/>
+      </div>
+      <div class="field-group">
+        <label>To</label>
+        <input type="text" placeholder="Destination"/>
+      </div>
+      <div class="field-group">
+        <label>Departure</label>
+        <input type="date"/>
+      </div>
+      <button class="search-btn">✈ Search Flights</button>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="listing-grid">
+    <!-- FILTERS -->
+    <div class="filter-panel reveal">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label>Max Price</label>
+        <input type="range" id="priceRange" min="100" max="3000" value="1500"/>
+        <p style="font-size:.85rem;color:var(--gold);margin-top:6px;" id="priceVal">$1,500</p>
+      </div>
+      <div class="filter-group">
+        <label style="margin-bottom:10px;display:block;">Stops</label>
+        <span class="filter-tag active">Non-stop</span>
+        <span class="filter-tag">1 Stop</span>
+        <span class="filter-tag">2+ Stops</span>
+      </div>
+      <div class="filter-group">
+        <label style="margin-bottom:10px;display:block;">Airlines</label>
+        <span class="filter-tag">Air Serbia</span>
+        <span class="filter-tag">Lufthansa</span>
+        <span class="filter-tag">Turkish Airlines</span>
+        <span class="filter-tag">Emirates</span>
+        <span class="filter-tag">Ryanair</span>
+      </div>
+      <div class="filter-group">
+        <label style="margin-bottom:10px;display:block;">Cabin Class</label>
+        <span class="filter-tag active">Economy</span>
+        <span class="filter-tag">Business</span>
+        <span class="filter-tag">First</span>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-list">
+      <div class="result-card reveal">
+        <div class="result-icon">✈</div>
+        <div class="result-info">
+          <h3>Belgrade → Paris CDG</h3>
+          <p>Air Serbia · Non-stop · 2h 50m · Departs 08:15</p>
+          <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="filter-tag active" style="font-size:.72rem;">Non-stop</span>
+            <span class="filter-tag" style="font-size:.72rem;">Economy</span>
+            <span class="filter-tag" style="font-size:.72rem;">1 Bag</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <div class="result-price">$219<small>per person</small></div>
+          <a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book</a>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-icon">✈</div>
+        <div class="result-info">
+          <h3>Belgrade → Dubai DXB</h3>
+          <p>Emirates · 1 Stop (IST) · 7h 10m · Departs 14:30</p>
+          <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="filter-tag" style="font-size:.72rem;">1 Stop</span>
+            <span class="filter-tag" style="font-size:.72rem;">Economy</span>
+            <span class="filter-tag" style="font-size:.72rem;">2 Bags</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <div class="result-price">$388<small>per person</small></div>
+          <a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book</a>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-icon">✈</div>
+        <div class="result-info">
+          <h3>Belgrade → New York JFK</h3>
+          <p>Lufthansa · 1 Stop (FRA) · 11h 45m · Departs 07:00</p>
+          <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="filter-tag" style="font-size:.72rem;">1 Stop</span>
+            <span class="filter-tag" style="font-size:.72rem;">Economy</span>
+            <span class="filter-tag" style="font-size:.72rem;">2 Bags</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <div class="result-price">$549<small>per person</small></div>
+          <a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book</a>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-icon">✈</div>
+        <div class="result-info">
+          <h3>Belgrade → Bali DPS</h3>
+          <p>Turkish Airlines · 2 Stops · 18h 20m · Departs 22:00</p>
+          <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="filter-tag" style="font-size:.72rem;">2 Stops</span>
+            <span class="filter-tag" style="font-size:.72rem;">Economy</span>
+            <span class="filter-tag" style="font-size:.72rem;">2 Bags</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <div class="result-price">$699<small>per person</small></div>
+          <a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book</a>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-icon">✈</div>
+        <div class="result-info">
+          <h3>Belgrade → Tokyo NRT</h3>
+          <p>Lufthansa · 1 Stop (MUC) · 14h 55m · Departs 09:30</p>
+          <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="filter-tag" style="font-size:.72rem;">1 Stop</span>
+            <span class="filter-tag active" style="font-size:.72rem;">Business</span>
+            <span class="filter-tag" style="font-size:.72rem;">3 Bags</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <div class="result-price">$2,199<small>per person</small></div>
+          <a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book</a>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-icon">✈</div>
+        <div class="result-info">
+          <h3>Belgrade → Athens ATH</h3>
+          <p>Air Serbia · Non-stop · 1h 40m · Departs 06:45</p>
+          <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="filter-tag active" style="font-size:.72rem;">Non-stop</span>
+            <span class="filter-tag" style="font-size:.72rem;">Economy</span>
+            <span class="filter-tag" style="font-size:.72rem;">1 Bag</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <div class="result-price">$129<small>per person</small></div>
+          <a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter-section">
+  <div class="newsletter-box reveal">
+    <h2>Never Miss a Flight Deal</h2>
+    <p>Get fare alerts and exclusive discounts delivered to your inbox weekly.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address"/>
+      <button type="button">Alert Me</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><img src="logo.jpeg" alt="Logo"/><span>Looking<em>&amp;</em>Booking</span></a>
+      <p>Your trusted travel partner. We make the world accessible, one journey at a time.</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="flights.html">Flights</a></li><li><a href="hotels.html">Hotels</a></li><li><a href="contact.html">Packages</a></li><li><a href="contact.html">Car Rentals</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Careers</a></li><li><a href="contact.html">Blog</a></li></ul></div>
+    <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Help Center</a></li><li><a href="contact.html">Cancellations</a></li><li><a href="contact.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Looking &amp; Booking. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link">f</a><a href="#" class="social-link">in</a><a href="#" class="social-link">tw</a><a href="#" class="social-link">ig</a>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
