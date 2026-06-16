@@ -1,9 +1,10 @@
 body{
   margin:0;
-  font-family:Arial,sans-serif;
+  font-family:Arial, sans-serif;
   background:#0b0b0b;
   color:white;
   overflow-x:hidden;
+  padding-top:90px; /* FIX: mos me u mbulu content prej navbar */
 }
 
 html{
@@ -19,10 +20,12 @@ html{
   padding:20px 50px;
   background:rgba(0,0,0,.85);
   position:fixed;
+  top:0;
   width:100%;
   z-index:1000;
   box-sizing:border-box;
   backdrop-filter:blur(10px);
+  transition:0.3s ease;
 }
 
 .logo{
@@ -35,14 +38,22 @@ html{
   display:flex;
   gap:25px;
   list-style:none;
+  margin:0;
+  padding:0;
 }
 
 .nav li{
   cursor:pointer;
-  transition:.3s;
 }
 
-.nav li:hover{
+.nav a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.nav li:hover,
+.nav a:hover{
   color:gold;
 }
 
@@ -63,8 +74,7 @@ html{
 
 .hero{
   height:100vh;
-  background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836')
-  center/cover;
+  background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -106,18 +116,11 @@ html{
 }
 
 @keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(80px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0; transform:translateY(80px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-/* GENERAL */
+/* SECTIONS GENERAL */
 
 .about,
 .features,
@@ -130,8 +133,7 @@ html{
 .contact,
 .reservation,
 .premium-menu,
-.video-section,
-.music{
+.video-section{
   padding:80px 60px;
   text-align:center;
 }
@@ -177,6 +179,8 @@ h2{
   padding:30px;
   border-radius:15px;
   transition:.5s;
+  opacity:0;
+  transform:translateY(20px);
 }
 
 .card:hover{
@@ -283,9 +287,7 @@ h2{
 }
 
 @keyframes pulse{
-  50%{
-    transform:scale(1.08);
-  }
+  50%{transform:scale(1.08);}
 }
 
 /* TESTIMONIAL */
@@ -320,12 +322,6 @@ h2{
   border:none;
   border-radius:10px;
   cursor:pointer;
-}
-
-/* MUSIC */
-
-.music audio{
-  width:80%;
 }
 
 /* CONTACT */
@@ -410,5 +406,4 @@ footer{
     flex-wrap:wrap;
     justify-content:center;
   }
-
 }
