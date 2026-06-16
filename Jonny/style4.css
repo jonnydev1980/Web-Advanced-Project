@@ -64,3 +64,33 @@ button {
   border: none;
   cursor: pointer;
 }
+.extras{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:40px;
+}
+
+.box{
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:10px;
+  width:250px;
+  text-align:center;
+  transition:.4s;
+}
+
+.box:hover{
+  transform:translateY(-8px);
+}
+
+@media(max-width:800px){
+
+  .container{
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+  }
+
+}
