@@ -34,11 +34,13 @@ let counter = setInterval(() => {
 /* TESTIMONIALS */
 
 const reviews = [
+
   "Best restaurant experience ever!",
   "Amazing food and atmosphere!",
   "Luxury dining at its finest!",
   "Outstanding chefs and service!",
   "Absolutely unforgettable experience!"
+
 ];
 
 let reviewIndex = 0;
@@ -52,25 +54,146 @@ setInterval(() => {
   }
 
   document.getElementById("review").innerText =
-    reviews[reviewIndex];
+  reviews[reviewIndex];
 
 }, 3000);
+
+/* MENU FILTER */
+
+const menuItems = [
+
+  {
+    type: "food",
+    name: "Steak Deluxe"
+  },
+
+  {
+    type: "food",
+    name: "Royal Pasta"
+  },
+
+  {
+    type: "food",
+    name: "Truffle Pizza"
+  },
+
+  {
+    type: "drink",
+    name: "Fresh Juice"
+  },
+
+  {
+    type: "drink",
+    name: "Wine Collection"
+  }
+
+];
+
+const filter =
+document.getElementById("foodFilter");
+
+if (filter) {
+
+  filter.addEventListener("change", () => {
+
+    let html = "";
+
+    menuItems.forEach(item => {
+
+      if (
+        filter.value === "all" ||
+        item.type === filter.value
+      ) {
+
+        html += `
+        <p>${item.name}</p>
+        `;
+
+      }
+
+    });
+
+    document.getElementById("menuResults")
+    .innerHTML = html;
+
+  });
+
+  filter.dispatchEvent(
+    new Event("change")
+  );
+
+}
+
+/* RESERVATION FORM */
+
+const reserveForm =
+document.getElementById("reserveForm");
+
+if (reserveForm) {
+
+  reserveForm.addEventListener(
+    "submit",
+    function(e) {
+
+      e.preventDefault();
+
+      let name =
+      document.getElementById("name").value;
+
+      let email =
+      document.getElementById("email").value;
+
+      let guests =
+      document.getElementById("guests").value;
+
+      if (
+        name === "" ||
+        email === "" ||
+        guests === ""
+      ) {
+
+        document.getElementById("msg")
+        .innerText =
+        "Please fill all fields.";
+
+      }
+
+      else {
+
+        document.getElementById("msg")
+        .innerText =
+        "Reservation Sent Successfully!";
+
+        reserveForm.reset();
+
+      }
+
+    }
+
+  );
+
+}
 
 /* SCROLL ANIMATION */
 
 window.addEventListener("scroll", () => {
 
-  const cards = document.querySelectorAll(".card");
+  const cards =
+  document.querySelectorAll(".card");
 
   cards.forEach(card => {
 
     const position =
-      card.getBoundingClientRect().top;
+    card.getBoundingClientRect().top;
 
-    if (position < window.innerHeight - 100) {
+    if (
+      position <
+      window.innerHeight - 100
+    ) {
 
       card.style.opacity = "1";
-      card.style.transform = "translateY(0px)";
+      card.style.transform =
+      "translateY(0px)";
 
     }
 
@@ -80,17 +203,27 @@ window.addEventListener("scroll", () => {
 
 /* TOP BUTTON */
 
-const topBtn = document.getElementById("topBtn");
+const topBtn =
+document.getElementById("topBtn");
 
 window.onscroll = function () {
 
   if (
+
     document.body.scrollTop > 400 ||
+
     document.documentElement.scrollTop > 400
+
   ) {
+
     topBtn.style.display = "block";
-  } else {
+
+  }
+
+  else {
+
     topBtn.style.display = "none";
+
   }
 
 };
@@ -98,24 +231,77 @@ window.onscroll = function () {
 function goTop() {
 
   window.scrollTo({
+
     top: 0,
     behavior: "smooth"
+
   });
 
 }
 
-/* HERO FLOAT */
+/* HERO FLOAT EFFECT */
 
-const hero = document.querySelector(".hero-content");
+const hero =
+document.querySelector(".hero-content");
 
-setInterval(() => {
+if (hero) {
 
-  hero.style.transform = "translateY(-10px)";
+  setInterval(() => {
 
-  setTimeout(() => {
+    hero.style.transform =
+    "translateY(-10px)";
 
-    hero.style.transform = "translateY(0px)";
+    setTimeout(() => {
 
-  }, 1000);
+      hero.style.transform =
+      "translateY(0px)";
 
-}, 2000);
+    }, 1000);
+
+  }, 2000);
+
+}
+
+/* GALLERY ZOOM */
+
+const images =
+document.querySelectorAll(
+  ".gallery-grid img"
+);
+
+images.forEach(img => {
+
+  img.addEventListener(
+    "mouseenter",
+    () => {
+
+      img.style.transform =
+      "scale(1.08)";
+
+    }
+  );
+
+  img.addEventListener(
+    "mouseleave",
+    () => {
+
+      img.style.transform =
+      "scale(1)";
+
+    }
+  );
+
+});
+
+/* WELCOME MESSAGE */
+
+window.addEventListener(
+  "load",
+  () => {
+
+    console.log(
+      "Welcome to Velora Restaurant"
+    );
+
+  }
+);

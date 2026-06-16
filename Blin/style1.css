@@ -4,6 +4,7 @@ body{
   background:#0b0b0b;
   color:white;
   overflow-x:hidden;
+  padding-top:90px; /* FIX: mos me u mbulu content prej navbar */
 }
 
 html{
@@ -19,9 +20,12 @@ html{
   padding:20px 50px;
   background:rgba(0,0,0,.85);
   position:fixed;
+  top:0;
   width:100%;
   z-index:1000;
   box-sizing:border-box;
+  backdrop-filter:blur(10px);
+  transition:0.3s ease;
 }
 
 .logo{
@@ -34,14 +38,22 @@ html{
   display:flex;
   gap:25px;
   list-style:none;
+  margin:0;
+  padding:0;
 }
 
 .nav li{
   cursor:pointer;
-  transition:.3s;
 }
 
-.nav li:hover{
+.nav a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.nav li:hover,
+.nav a:hover{
   color:gold;
 }
 
@@ -51,32 +63,47 @@ html{
   border-radius:8px;
   cursor:pointer;
   font-weight:bold;
+  transition:.4s;
+}
+
+.nav button:hover{
+  transform:scale(1.05);
 }
 
 /* HERO */
 
 .hero{
   height:100vh;
-  background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836')
-  center/cover;
+  background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
 }
 
 .hero-content{
+  position:relative;
+  z-index:2;
   animation:fadeUp 1.5s ease;
-  transition:1s;
 }
 
 .hero h1{
-  font-size:65px;
+  font-size:70px;
   margin:0;
 }
 
 .hero p{
-  font-size:22px;
+  font-size:24px;
+  max-width:700px;
+  margin:auto;
 }
 
 .hero button{
@@ -85,23 +112,15 @@ html{
   border-radius:10px;
   cursor:pointer;
   font-size:17px;
+  margin-top:20px;
 }
 
 @keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(80px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
+  from{opacity:0; transform:translateY(80px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-/* GENERAL */
+/* SECTIONS GENERAL */
 
 .about,
 .features,
@@ -111,7 +130,10 @@ html{
 .experience,
 .stats,
 .testimonial,
-.contact{
+.contact,
+.reservation,
+.premium-menu,
+.video-section{
   padding:80px 60px;
   text-align:center;
 }
@@ -136,10 +158,12 @@ h2{
   width:220px;
   border-radius:15px;
   transition:.4s;
+  border:1px solid #222;
 }
 
 .box:hover{
   transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(255,215,0,.25);
 }
 
 /* SPECIAL */
@@ -154,13 +178,41 @@ h2{
   background:#181818;
   padding:30px;
   border-radius:15px;
+  transition:.5s;
   opacity:0;
-  transform:translateY(50px);
-  transition:.7s;
+  transform:translateY(20px);
 }
 
 .card:hover{
   transform:translateY(-10px);
+  box-shadow:0 0 30px rgba(255,215,0,.2);
+}
+
+/* EXPERIENCE */
+
+.exp-box{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.exp-box div{
+  background:#181818;
+  padding:25px;
+  border-radius:15px;
+  transition:.4s;
+}
+
+.exp-box div:hover{
+  transform:translateY(-10px);
+}
+
+/* VIDEO */
+
+.video-section video{
+  width:80%;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(255,255,255,.1);
 }
 
 /* MENU */
@@ -172,7 +224,7 @@ h2{
 }
 
 .item{
-  background:#222;
+  background:#181818;
   padding:25px;
   border-radius:15px;
   transition:.4s;
@@ -180,6 +232,20 @@ h2{
 
 .item:hover{
   transform:scale(1.05);
+}
+
+/* FILTER */
+
+.premium-menu select{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+#menuResults{
+  margin-top:20px;
+  font-size:20px;
 }
 
 /* GALLERY */
@@ -202,25 +268,6 @@ h2{
   transform:scale(1.08);
 }
 
-/* EXPERIENCE */
-
-.exp-box{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.exp-box div{
-  background:#181818;
-  padding:25px;
-  border-radius:15px;
-  transition:.4s;
-}
-
-.exp-box div:hover{
-  transform:translateY(-10px);
-}
-
 /* STATS */
 
 .stats{
@@ -230,8 +277,9 @@ h2{
 }
 
 .stats span{
-  font-size:45px;
+  font-size:50px;
   font-weight:bold;
+  color:gold;
 }
 
 .stats div{
@@ -239,11 +287,7 @@ h2{
 }
 
 @keyframes pulse{
-
-  50%{
-    transform:scale(1.08);
-  }
-
+  50%{transform:scale(1.08);}
 }
 
 /* TESTIMONIAL */
@@ -257,20 +301,27 @@ h2{
   font-style:italic;
 }
 
-/* BOOKING */
+/* FORM */
 
-.booking-banner{
-  background:linear-gradient(135deg,#111,#222);
-  text-align:center;
-  padding:100px 50px;
+.reservation form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-width:500px;
+  margin:auto;
 }
 
-.booking-banner button{
-  padding:15px 40px;
+.reservation input{
+  padding:15px;
+  border:none;
+  border-radius:10px;
+}
+
+.reservation button{
+  padding:15px;
   border:none;
   border-radius:10px;
   cursor:pointer;
-  margin-top:20px;
 }
 
 /* CONTACT */
@@ -286,6 +337,21 @@ h2{
   background:#181818;
   padding:20px 30px;
   border-radius:15px;
+}
+
+/* BOOKING */
+
+.booking-banner{
+  background:linear-gradient(135deg,#111,#222);
+  text-align:center;
+  padding:100px 50px;
+}
+
+.booking-banner button{
+  padding:15px 40px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
 }
 
 /* FOOTER */
@@ -331,4 +397,13 @@ footer{
     font-size:45px;
   }
 
+  .nav{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
 }
